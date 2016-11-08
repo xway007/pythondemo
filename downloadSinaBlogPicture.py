@@ -20,7 +20,7 @@ def downloadsinablogpic(url):
         element = (key, value)
         headers.append(element)
     opener.addheaders = headers
-    html = opener.open(url, timeout=60).read().decode()
+    html = str(opener.open(url, timeout=60).read())
 
     img_re = re.compile(r'(?<=real_src =").+?"')
     img_list = img_re.findall(html)
